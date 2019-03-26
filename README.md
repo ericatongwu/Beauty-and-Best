@@ -3,6 +3,5 @@ INF 551 final project, IoT
 
 
 ### Need to upload
-* json file
-* upload code
+* beauty data needed 
 * recommand code
