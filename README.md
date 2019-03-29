@@ -2,6 +2,10 @@
 INF 551 final project, IoT
 
 
-### Need to upload
-* beauty data needed 
-* recommand code
+## Next
+* Visualization
+* Data Analysis
+* Recomandation System
+* Learn Swift
+
+
