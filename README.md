@@ -43,7 +43,7 @@ For the sentiment Analysis part, I use two sentiment analysis tools. The first o
 
 Other than using well-developed API from other developers, I also introduce some red flag system which will add a weight to the confidence score which will trigger the sending function to send message through texts. The red flag system contains several words that we consider as red flags such as “kill”, “suicide” and other dangerous words. After we get the weighted confidence score, there is another API called Twilio will send text messages to user’s friend and ask for help. Users could choose to mute this function if they decide to keep it down, however, the purpose for my App is to help user to reach out when they want but they could not do this by themselves.
 
-![text](/final_report/text.png)
+![text](/final_report/text.jpg)
 
 Figure 6. message sent when the diary is very negative
 
