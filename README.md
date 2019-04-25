@@ -21,21 +21,21 @@ After I gather those data, I use JSON in python to read and load them into a dic
 
 Now I would like to introduce my IOS App interface made by both Xcode and Kivy. For the Xcode version, I make a splash page with my icon and this page will disappear in several seconds. Then the main page shows login username and passwords. After we log into the app, there are three icons representing video, time and diary. When you tap the button, you can get into the specific section and when you tap the back button, you can get back to the menu page. This is a user-friendly interface, however, swift does not compile with python which I develop all of my function with. 
 
-![Xcode interface](/xcode_interface/.png)
+![Xcode interface](/final_report/xcode_interface.png)
 
 Figue2. Xcode designed interface
 
 Therefore, I switch to use a library called Kivy from python which is an object orientated programming package which is also a challenge for me since I have never tried this kind of programming before. For the Kivy version, I design the interface for gathering input such as date and diary from users and update that to the firebase. After that, the program I wrote for functions will generate the recommendations and decide to generate the text messages for sending or not.
 
-![kivy interface](/kivy_interface/.png)
+![kivy interface](/final_report/kivy_interface.png)
 
 Figure 3. Kivy interface
 
 For the suggestion of dresses and video for users, I use the data to generate user’s habit and make random suggestions for users. Additional to that, I will suggest the user to finish their leftovers when the last video was not finished by the user. For the dress suggestion, I make sure that user should not wear the same type of outfit every day. Then the suggestion will be updated to the firebase when we give the new date which is not included in the earlier version. Since I use date as the key for the JSON file, which python could look through the file and make sure the user is not changing the history.
 
-![result 1](/result_1/.png)
+![result 1](/final_report/result_1.png)
 
-![result 2](/result_2/.png)
+![result 2](/final_report/result_2.png)
 
 Figure 4-5, results of suggestions for a new date, Mar 30th
 
@@ -43,7 +43,7 @@ For the sentiment Analysis part, I use two sentiment analysis tools. The first o
 
 Other than using well-developed API from other developers, I also introduce some red flag system which will add a weight to the confidence score which will trigger the sending function to send message through texts. The red flag system contains several words that we consider as red flags such as “kill”, “suicide” and other dangerous words. After we get the weighted confidence score, there is another API called Twilio will send text messages to user’s friend and ask for help. Users could choose to mute this function if they decide to keep it down, however, the purpose for my App is to help user to reach out when they want but they could not do this by themselves.
 
-![text](/text/.png)
+![text](/final_report/text.png)
 
 Figure 6. message sent when the diary is very negative
 
