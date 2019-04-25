@@ -4,7 +4,8 @@ from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput 
 from kivy.uix.button import Button 
-
+import os
+import project_functions
 
 class MyGrid(GridLayout):
 	def __init__(self, **kwargs):
@@ -43,6 +44,8 @@ class MyGrid(GridLayout):
 
 		print("Date: ", date)
 		print("Diary:", diary)
+
+		os.system("project_functions.py date diary")
  
 		self.date.text = " "
 		self.diary.text = " "

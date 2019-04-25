@@ -14,6 +14,7 @@ import json
 from nltk.tokenize import TweetTokenizer
 import numpy as np 
 from twilio.rest import Client
+import sys, fileinput
 
 tknzr = TweetTokenizer(strip_handles=True, reduce_len=True)
 
@@ -144,13 +145,13 @@ def send_message(dominant_mood, score):
 if __name__ == "__main__":
 	data = read_json("easy_json.json")
 	using_data = data
-	today = "Apr 24"
+	today = sys.argv[1]
 	today_video, today_time, today_cloth = suggestion_today(using_data, today)
 	url = "https://project-2a5c4.firebaseio.com/bb.json"
 	
 	response = requests.put(url, data = json.dumps(using_data))
 
-	today_diary = "At the time I was worried that Happy Baby was not funny enough. My editor had mentioned that to me, that if the book had a little more light in it there would be a wider audience. In fact, the book is not funny at all. It’s a very sad book about a man, Theo, who is molested as a boy in the detention center by a guard, Mr. Gracie. Mr. Gracie physically and verbally abuses him but also protects him from the other boys. In this way Theo learns to associate abuse with affection and searches out Mr. Gracie’s replacement for the rest of his life. I was wondering if anyone would be interested in such a dark book. My publisher didn’t think so."
+	today_diary = sys.argv[2]
 	updated_data = new_replace_old(url, using_data, today, today_video, today_time, today_cloth, today_diary)
 	dominant_mood, mean_score = tone_analysis(updated_data, today)
 	send_message(dominant_mood, mean_score)
