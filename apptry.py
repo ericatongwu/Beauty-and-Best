@@ -4,10 +4,11 @@ from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput 
 from kivy.uix.button import Button 
-import os
-import project_functions
+from example import *
+
 
 class MyGrid(GridLayout):
+
 	def __init__(self, **kwargs):
 		super(MyGrid, self).__init__(**kwargs)
 		self.cols = 2
@@ -36,18 +37,26 @@ class MyGrid(GridLayout):
 		self.submit = Button(text="Beauty and Best", font_size= 40)
 		self.submit.bind(on_press=self.pressed)
 		self.add_widget(self.submit)
+		self.example = Example()
 
 	def pressed(self, instance):
-		
+
 		date = self.date.text
 		diary = self.diary.text
+
+		new_dct = self.example.get_online_json()
+
+		today_video, today_time, today_cloth = self.example.get_suggestions_today(new_dct, date)
+
+		new_json_data = self.example.new_replace_old(new_dct, date, today_video, today_time, today_cloth, diary)
+		dominant_mood, mean_score = self.example.tone_analysis(new_json_data, date)
+		self.example.send_message(dominant_mood, mean_score)
 
 		print("Date: ", date)
 		print("Diary:", diary)
 
-		os.system("project_functions.py date diary")
- 
 		self.date.text = " "
+
 		self.diary.text = " "
 
 
